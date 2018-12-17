@@ -777,7 +777,7 @@ private:
 		fragShaderStageInfo.module = fragShaderModule;
 		fragShaderStageInfo.pName = "main";
 
-		
+	
 		VkPipelineShaderStageCreateInfo geoShaderStageInfo = {};
 		geoShaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
 		geoShaderStageInfo.stage = VK_SHADER_STAGE_GEOMETRY_BIT;

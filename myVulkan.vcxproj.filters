@@ -124,5 +124,8 @@
     <None Include="shaders\geometry.geom">
       <Filter>shaders</Filter>
     </None>
+    <None Include="shaders\geom2.geom">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

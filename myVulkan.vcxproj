@@ -203,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat" />
+    <None Include="shaders\geom2.geom" />
     <None Include="shaders\geometry.geom" />
     <None Include="shaders\shader_base.frag" />
     <None Include="shaders\shader_base.vert" />
