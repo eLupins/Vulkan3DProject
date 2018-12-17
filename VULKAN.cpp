@@ -555,6 +555,7 @@ private:
 
 		VkPhysicalDeviceFeatures deviceFeatures = {};
 		deviceFeatures.samplerAnisotropy = VK_TRUE;
+		deviceFeatures.geometryShader = 1;
 
 		VkDeviceCreateInfo createInfo = {};
 		createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
@@ -757,12 +758,12 @@ private:
 	void createGraphicsPipeline() {
 		auto vertShaderCode = readFile("shaders/vert.spv");
 		auto fragShaderCode = readFile("shaders/frag.spv");
-	//	auto geoShaderCode = readFile("shaders/geometry.spv"); 
+		auto geoShaderCode = readFile("shaders/geom.spv"); 
 
 
 		VkShaderModule vertShaderModule = createShaderModule(vertShaderCode);
 		VkShaderModule fragShaderModule = createShaderModule(fragShaderCode);
-	//	VkShaderModule geoShaderModule = createShaderModule(geoShaderCode);
+		VkShaderModule geoShaderModule = createShaderModule(geoShaderCode);
 
 		VkPipelineShaderStageCreateInfo vertShaderStageInfo = {};
 		vertShaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
@@ -776,15 +777,15 @@ private:
 		fragShaderStageInfo.module = fragShaderModule;
 		fragShaderStageInfo.pName = "main";
 
-		/*
+		
 		VkPipelineShaderStageCreateInfo geoShaderStageInfo = {};
 		geoShaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
 		geoShaderStageInfo.stage = VK_SHADER_STAGE_GEOMETRY_BIT;
 		geoShaderStageInfo.module = geoShaderModule;
 		geoShaderStageInfo.pName = "main";
-		*/
+		
 
-		VkPipelineShaderStageCreateInfo shaderStages[] = { vertShaderStageInfo, fragShaderStageInfo };
+		VkPipelineShaderStageCreateInfo shaderStages[] = { vertShaderStageInfo, geoShaderStageInfo, fragShaderStageInfo };
 		
 
 		//well fill this structure to specify that theres no vertex data to load for now.
@@ -922,7 +923,7 @@ private:
 		//time to combine everything weve done to create the graphics pipeline!
 		VkGraphicsPipelineCreateInfo pipelineInfo = {};
 		pipelineInfo.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
-		pipelineInfo.stageCount = 2;
+		pipelineInfo.stageCount = 3;
 		pipelineInfo.pStages = shaderStages;
 
 		//start by referencing the array of vkpipelineshaderstagecreateinfo structs
@@ -947,7 +948,7 @@ private:
 			throw std::runtime_error("FAILED TO CREATE A GRAPHICS PIPELINE");
 		}
 		vkDestroyShaderModule(device, fragShaderModule, nullptr);
-	//	vkDestroyShaderModule(device, geoShaderModule, nullptr);
+		vkDestroyShaderModule(device, geoShaderModule, nullptr);
 		vkDestroyShaderModule(device, vertShaderModule, nullptr);
 	}
 

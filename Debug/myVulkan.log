@@ -1,6 +1,5 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   VULKAN.cpp
-d:\3dgame\myvulkan\myvulkan\vulkan.cpp(1039): warning C4834: discarding return value of function with 'nodiscard' attribute
-d:\3dgame\myvulkan\myvulkan\vulkan.cpp(1041): warning C4834: discarding return value of function with 'nodiscard' attribute
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+d:\3dgame\myvulkan\myvulkan\vulkan.cpp(1040): warning C4834: discarding return value of function with 'nodiscard' attribute
+d:\3dgame\myvulkan\myvulkan\vulkan.cpp(1042): warning C4834: discarding return value of function with 'nodiscard' attribute
   myVulkan.vcxproj -> D:\3DGAME\myVulkan\myVulkan\.\myVulkan.exe
