@@ -143,12 +143,7 @@ namespace std {
 }
 
 
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
-	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS) {
-		printf("WOOOOOAH YOU GOT SOME BASIC SHIT DONE CONGRATS\n");
-	}
-}
 /*
 struct UniformBufferObject {
 	glm::mat4 model;
@@ -179,8 +174,86 @@ const std::vector<uint16_t> indices = {
 	4, 5, 6, 6, 7, 4
 };
 */
+float iRotate = 0.0f;
+float iZoom = 0.0f;
+float angleAlter = 0.0f;
+float xStretch = 0.0f;
+float yStretch = 0.0f;
+float zStretch = 0.0f;
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
-#
+	
+
+	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS) {
+		printf("WOOOOOAH YOU GOT SOME BASIC SHIT DONE CONGRATS\n");
+	}
+
+	if (key == GLFW_KEY_PAGE_UP && action == GLFW_PRESS) {
+		
+		iRotate += 2.0f;
+		printf("Slow down rotation .\n");
+
+	}
+
+	if (key == GLFW_KEY_PAGE_DOWN && action == GLFW_PRESS) {
+
+		iRotate -= 2.0f;
+		printf("Speed up rotation.\n");
+
+	}
+
+	if (key == GLFW_KEY_Z && action == GLFW_PRESS) {
+		iZoom += 5.0f;
+		printf("Zoom in.\n");
+	}
+
+	if (key == GLFW_KEY_X && action == GLFW_PRESS) {
+		iZoom -= 5.0f;
+		printf("Zoom out.\n");
+	}
+
+	if (key == GLFW_KEY_A && action == GLFW_PRESS) {
+		angleAlter += 3.0f;
+		printf("Positive angle alter.\n");
+	}
+
+	if (key == GLFW_KEY_D && action == GLFW_PRESS) {
+		angleAlter -= 3.0f;
+		printf("Negative angle alter.\n");
+	}
+
+	if (key == GLFW_KEY_1 && action == GLFW_PRESS) {
+		xStretch += 1.0f;
+		printf("+xStretch.\n");
+	}
+	if (key == GLFW_KEY_2 && action == GLFW_PRESS) {
+		xStretch -= 1.0f;
+		printf("-xStretch.\n");
+	}
+
+	if (key == GLFW_KEY_3 && action == GLFW_PRESS) {
+		yStretch += 1.0f;
+		printf("+yStretch.\n");
+	}
+	if (key == GLFW_KEY_4 && action == GLFW_PRESS) {
+		yStretch -= 1.0f;
+		printf("-yStretch.\n");
+	}
+	
+	if (key == GLFW_KEY_5 && action == GLFW_PRESS) {
+		zStretch += 1.0f;
+		printf("+zStretch.\n");
+	}
+	if (key == GLFW_KEY_6 && action == GLFW_PRESS) {
+		zStretch -= 1.0f;
+		printf("-zStretch.\n");
+	}
+}
+
+	
+Entity *ent;
+Ubo *ubo;
+
 
 class TriangleRend {
 public:
@@ -196,8 +269,7 @@ public:
 private:
 	GLFWwindow * window;
 
-	Ubo *ubo;
-	Entity *ent;
+	
 
 	//here
 	
@@ -1362,36 +1434,6 @@ private:
 		vkDestroyBuffer(device, stagingBuffer, nullptr);
 		vkFreeMemory(device, stagingBufferMemory, nullptr);
 
-		/*
-		VkBufferCreateInfo bufferInfo = {};
-		bufferInfo.sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
-		bufferInfo.size = sizeof(vertices[0]) * vertices.size();
-		bufferInfo.usage = VK_BUFFER_USAGE_VERTEX_BUFFER_BIT;
-		bufferInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
-
-		if (vkCreateBuffer(device, &bufferInfo, nullptr, &vertexBuffer) != VK_SUCCESS) {
-			throw std::runtime_error("failed to create vertex buffer!");
-		}
-
-		VkMemoryRequirements memRequirements;
-		vkGetBufferMemoryRequirements(device, vertexBuffer, &memRequirements);
-		
-		VkMemoryAllocateInfo allocInfo = {};
-		allocInfo.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
-		allocInfo.allocationSize = memRequirements.size;
-		allocInfo.memoryTypeIndex = findMemoryType(memRequirements.memoryTypeBits, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
-
-		if (vkAllocateMemory(device, &allocInfo, nullptr, &vertexBufferMemory) != VK_SUCCESS) {
-			throw std::runtime_error("failed to allocate vertex buffer memory!");
-		}
-
-		vkBindBufferMemory(device, vertexBuffer, vertexBufferMemory, 0);
-
-		//void* data;
-		vkMapMemory(device, vertexBufferMemory, 0, bufferInfo.size, 0, &data);
-		memcpy(data, vertices.data(), (size_t)bufferInfo.size);
-		vkUnmapMemory(device, vertexBufferMemory);
-		*/
 	}
 
 	void createIndexBuffer() {
@@ -1668,9 +1710,10 @@ void createDescriptorSets() {
 
 		Ubo ubo = {};
 	//	ubo.model = glm::scale(2.0f, 2.0f, 2.0f);
-		ubo.model = glm::rotate(glm::mat4(1.0f), time * glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		ubo.view = glm::lookAt(glm::vec3(6.0f, 6.0f, 6.0f), glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		ubo.proj = glm::perspective(glm::radians(45.0f), swapChainExtent.width / (float)swapChainExtent.height, 0.01f, 15.0f);
+		ubo.model = glm::rotate(glm::mat4(1.0f), time * glm::radians(45.0f + iRotate), glm::vec3(0.0f + angleAlter, 1.0f, 0.0f));
+		ubo.view = glm::lookAt(glm::vec3(8.0f, 8.0f, 8.0f), glm::vec3(3.0f, 3.0f, 3.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		ubo.proj = glm::perspective(glm::radians(45.0f + iZoom), swapChainExtent.width / (float)swapChainExtent.height, 0.01f, 1.0f);
+		ubo.model = glm::translate(ubo.model, glm::vec3(0.0 + xStretch,0.0 + yStretch,0.0 + zStretch));
 		ubo.proj[1][1] *= -1;
 
 		void* data;
