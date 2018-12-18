@@ -43,6 +43,8 @@ typedef struct entity_s {
 	void(*die)(struct entity_s *self); 
 	void(*free)(struct entity_s *self); //freeing memory
 	void(*attack)(struct entity_s *self); //attack function
+	
+
 
 }Entity;
 

@@ -39,6 +39,9 @@
     <ClCompile Include="uboManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="particles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\glm-0.9.9.2\glm\glm\mat2x2.hpp">
@@ -102,6 +105,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="particles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gf3d_vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

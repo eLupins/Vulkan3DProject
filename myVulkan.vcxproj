@@ -172,6 +172,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bard.cpp" />
+    <ClCompile Include="particles.cpp" />
     <ClCompile Include="playercpp.cpp" />
     <ClCompile Include="uboManager.cpp" />
     <ClCompile Include="vk_camera.cpp" />
@@ -197,7 +198,10 @@
     <ClInclude Include="..\libs\glm-0.9.9.2\glm\glm\vec4.hpp" />
     <ClInclude Include="..\libs\stb-master\stb-master\stb_image.h" />
     <ClInclude Include="..\libs\tinyobjloader-master\tinyobjloader-master\tiny_obj_loader.h" />
+    <ClInclude Include="collision.h" />
+    <ClInclude Include="gf3d_vector.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="particles.h" />
     <ClInclude Include="vk_entity.h" />
     <ClInclude Include="vk_uniform_buffer_object.h" />
   </ItemGroup>

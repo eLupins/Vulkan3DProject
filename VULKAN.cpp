@@ -200,7 +200,7 @@ private:
 	Entity *ent;
 
 	//here
-
+	
 	//Ubo cube;
 	
 	VkInstance instance;
@@ -307,7 +307,7 @@ private:
 		createDepthResources();
 		createFramebuffers();
 		
-		uboSetup("models/merchdog.obj", "textures/plastic.png", "MerchDog", Player, 10);
+		uboSetup("models/merchdog.obj", "textures/sofa_fabric.png", "MerchDog", Player, 10);
 		 //
 	//	createTextureImageView();
 	//	createTextureSampler();
@@ -1656,14 +1656,6 @@ void createDescriptorSets() {
 		}
 	}
 
-	/*
-	void getKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-
-		
-
-
-	}
-	*/
 
 	//this function is for handling the movement of geometry within vulkan; the chrono library gives functions to do precise timekeeping 
 	//for exanoke, we use it foor rotating a geometry at 90 degrees/s regardless of frame rate
@@ -1847,6 +1839,8 @@ void createDescriptorSets() {
 
 		return details;
 	}
+
+
 
 	//we need to evaluate the devices to see if they're suitable for what we need to do. 
 	//after all, not all GPUs are equal in ability.

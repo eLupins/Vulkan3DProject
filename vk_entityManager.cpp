@@ -133,3 +133,9 @@ void entity_update_all() {
 		}
 	}
 }
+/*
+bool CheckCollision() {
+
+	
+
+}*/
