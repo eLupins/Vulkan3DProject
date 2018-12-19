@@ -1,5 +1,15 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  uboManager.cpp
+  vk_entityManager.cpp
+d:\3dgame\myvulkan\myvulkan\vk_entitymanager.cpp(23): warning C4018: '<': signed/unsigned mismatch
+d:\3dgame\myvulkan\myvulkan\vk_entitymanager.cpp(59): warning C4018: '<': signed/unsigned mismatch
+d:\3dgame\myvulkan\myvulkan\vk_entitymanager.cpp(65): warning C4244: '=': conversion from 'uint64_t' to 'uint32_t', possible loss of data
+d:\3dgame\myvulkan\myvulkan\vk_entitymanager.cpp(97): warning C4018: '<': signed/unsigned mismatch
+d:\3dgame\myvulkan\myvulkan\vk_entitymanager.cpp(128): warning C4018: '<': signed/unsigned mismatch
   VULKAN.cpp
 d:\3dgame\myvulkan\myvulkan\vulkan.cpp(1112): warning C4834: discarding return value of function with 'nodiscard' attribute
 d:\3dgame\myvulkan\myvulkan\vulkan.cpp(1114): warning C4834: discarding return value of function with 'nodiscard' attribute
+  Generating Code...
+d:\3dgame\myvulkan\myvulkan\vk_entitymanager.cpp(74): warning C4715: 'entity_new': not all control paths return a value
+d:\3dgame\myvulkan\myvulkan\ubomanager.cpp(33): warning C4715: 'ubo_New': not all control paths return a value
   myVulkan.vcxproj -> D:\3DGAME\myVulkan\myVulkan\.\myVulkan.exe

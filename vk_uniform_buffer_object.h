@@ -31,5 +31,13 @@ typedef struct UboManager {
 
 } UboManager;
 
+
+
+
+
+
+
+
+
 Ubo* ubo_New();
 void ubomanagerInit(int numUbos, int numEnt, int numSwapChain);
