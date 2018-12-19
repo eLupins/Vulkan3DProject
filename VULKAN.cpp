@@ -142,8 +142,6 @@ namespace std {
 	};
 }
 
-
-
 /*
 struct UniformBufferObject {
 	glm::mat4 model;
@@ -156,7 +154,14 @@ struct UniformBufferObject {
 The below vertices and indices structs are for making the (2)simple plain square
 
 //vertices; manipulate these for mod vertex data
-const std::vector<Vertex> vertices = {
+
+
+//indices represent the contents of the index buffer
+
+};
+*/
+
+const std::vector<Vertex> squareVerts = {
 	{ { -0.5f, -0.5f, 0.0f },{ 1.0f, 0.0f, 0.0f },{ 1.0f, 0.0f } },
 { { 0.5f, -0.5f, 0.0f },{ 0.0f, 1.0f, 0.0f },{ 0.0f, 0.0f } },
 { { 0.5f, 0.5f, 0.0f },{ 0.0f, 0.0f, 1.0f },{ 0.0f, 1.0f } },
@@ -168,12 +173,12 @@ const std::vector<Vertex> vertices = {
 { { -0.5f, 0.5f, -0.5f },{ 1.0f, 1.0f, 1.0f },{ 1.0f, 1.0f } }
 };
 
-//indices represent the contents of the index buffer
-const std::vector<uint16_t> indices = {
+const std::vector<uint16_t> squareIndices = {
 	0, 1, 2, 2, 3, 0,
 	4, 5, 6, 6, 7, 4
 };
-*/
+
+
 float iRotate = 0.0f;
 float iZoom = 0.0f;
 float angleAlter = 0.0f;
@@ -190,15 +195,15 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
 	if (key == GLFW_KEY_PAGE_UP && action == GLFW_PRESS) {
 		
-		iRotate += 2.0f;
-		printf("Slow down rotation .\n");
+		iRotate += 5.0f;
+		printf("Speed up rotation .\n");
 
 	}
 
 	if (key == GLFW_KEY_PAGE_DOWN && action == GLFW_PRESS) {
 
-		iRotate -= 2.0f;
-		printf("Speed up rotation.\n");
+		iRotate -= 5.0f;
+		printf("Slow down rotation.\n");
 
 	}
 

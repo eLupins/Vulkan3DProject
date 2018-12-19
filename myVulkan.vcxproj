@@ -202,6 +202,7 @@
     <ClInclude Include="gf3d_vector.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="particles.h" />
+    <ClInclude Include="soundManager.h" />
     <ClInclude Include="vk_entity.h" />
     <ClInclude Include="vk_uniform_buffer_object.h" />
   </ItemGroup>

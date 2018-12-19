@@ -116,6 +116,9 @@
     <ClInclude Include="gf3d_vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="soundManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat">
