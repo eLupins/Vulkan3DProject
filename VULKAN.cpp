@@ -15,7 +15,7 @@
 #define TINYOBJLOADER_IMPLEMENTATION
 //#include <tiny_obj_loader.h>
 
-#include<iostream>
+//#include<iostream>
 #include <fstream>
 #include <stdexcept>
 #include <algorithm>
@@ -26,10 +26,11 @@
 #include <array>
 #include <optional>
 #include <set>
-#include <string>
+//#include <string>
 #include <unordered_map>
 //#include "vk_uniform_buffer_object.h"
 #include "vk_entity.h"
+#include "soundManager.h"
 
 const int WIDTH = 1000;
 const int HEIGHT = 600;
@@ -274,6 +275,7 @@ public:
 private:
 	GLFWwindow * window;
 
+	SoundSys *njit = NULL;
 	
 
 	//here
@@ -370,6 +372,12 @@ private:
 
 		entity_system_init(1024);
 		ubomanagerInit(1024, 1024, 3);
+		audioSys_init(MAX_SOUND_NUM, MAX_CHANNEL_NUM, 0, 0, 1, 1);
+	//	char njitPath[] = "music/NJIT.ogg";
+		//soundManager->
+		njit =soundLoad("music/NJIT.ogg", 15.0f, -1);
+		soundPlay(njit, -1, 0, -1, 0);
+
 		createInstance();
 		setupDebugCallback();
 		CreateSurface();

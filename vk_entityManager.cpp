@@ -8,6 +8,7 @@ typedef struct entityManager_s {
 	Entity *entityList;
 	uint64_t increment;
 //	UniformBufferObject *uboList;
+	
 
 }EntitySysManager;
 

@@ -16,7 +16,7 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{649e4c25-b8a0-47a4-9657-4a9dac7ee8ba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="models">
+    <Filter Include="Resource Files\models">
       <UniqueIdentifier>{6a2d361f-5f02-423f-99fd-95fa0e3a2273}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -40,6 +40,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="particles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
